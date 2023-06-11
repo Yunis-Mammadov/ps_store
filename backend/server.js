@@ -4,6 +4,7 @@ const mongoose = require("mongoose")
 const dotenv = require("dotenv")
 const bodyParser = require("body-parser")
 const app = express()
+const jwt = require('jsonwebtoken');
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -17,7 +18,6 @@ app.use("/api/contact",router.contact_routes)
 app.use("/api/games",router.games_routes)
 app.use("/api/hardware",router.hardware_routes)
 app.use("/api/slider",router.slider_routes)
-
 
 
 PORT = process.env.PORT

@@ -1,35 +1,36 @@
-.TopNav{
-    height: 1.9375rem;
-    width: 100%;
-    margin: 0;
-    background-color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+.TopNav {
+  height: 1.9375rem;
+  width: 100%;
+  margin: 0;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.TopNavImg{
-    width: 4.2rem;
-    margin-right: 0.8rem;
+.TopNavImg {
+  width: 4.2rem;
+  margin-right: 0.8rem;
 }
 
-.NavbarImg{
-    width: 2.5rem;
-    /* margin-bottom: 1rem, */
+.NavbarImg {
+  width: 2.5rem;
 }
 
-.Navbar{
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    width: 90%;
-    background-color: red;
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
 }
 
-.RegisterBtn{
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    width: 60%;
-    background-color: red;
+.LinksAndLogo{
+  display: flex;
 }
+
+.ButtonsAndSearch{
+  display: flex;
+  align-items: center;
+}
+
