@@ -15,6 +15,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from "../Modal";
 import styles from "../UserNavbar/index.module.css";
+import Login from '../../../../pages/User/Login';
 
 const drawerWidth = 300;
 const navItems = [
@@ -42,7 +43,7 @@ function UserNavbar() {
             to={`/${item.path}`}
             disablePadding
           >
-            <ListItemButton sx={{ textAlign: "center",color:"white" }}>
+            <ListItemButton sx={{ textAlign: "center", color: "white" }}>
               <ListItemText primary={item.label} />
             </ListItemButton>
           </ListItem>
@@ -98,20 +99,27 @@ function UserNavbar() {
               </Box>
               <Box className={styles.ButtonsAndSearch}>
                 <Box className={styles.RegisterBtn}>
+                  {/* <Link to={<Login/>}> */}
                   <button
+                    onClick={() => {
+                      window.location.href = "login";
+                    }}
                     style={{
                       width: "80px",
                       height: "40px",
                       borderRadius: "10px",
                       border: "none",
-                      fontSize: "15apx",
+                      fontSize: "15px",
                       backgroundColor: "rgb(25,118,210)",
-                      color: "white"
+                      color: "white",
+                      cursor:"pointer"
                     }}
                     variant="contained"
                   >
                     Sign In
                   </button>
+
+                  {/* </Link> */}
                 </Box>
                 <Box>
                   <Modal />
@@ -143,15 +151,15 @@ function UserNavbar() {
             }}
             sx={{
               display: { xs: 'block', sm: 'none' },
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth ,backgroundColor:"rgb(31,31,31)"},
+              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, backgroundColor: "rgb(31,31,31)" },
             }}
           >
             {drawer}
             <Box sx={{ marginTop: 'auto' }}>
               <FavoriteIcon
                 sx={{
-                  position:"relative",
-                  bottom:"515px",
+                  position: "relative",
+                  bottom: "515px",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",

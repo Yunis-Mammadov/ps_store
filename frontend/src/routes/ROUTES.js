@@ -4,37 +4,49 @@ import DetailPage from "../pages/User/DetailPage";
 import Games from "../pages/User/Games";
 import Hardware from "../pages/User/Hardware";
 import Home from "../pages/User/Home";
+import Login from "../pages/User/Login";
+import LoginRoot from "../pages/User/LoginRoot";
 import MainRoot from "../pages/User/MainRoot";
 
 export const ROUTES = [
     {
         path: "/",
-        element: <MainRoot/>,
+        element: <MainRoot />,
         children: [
             {
                 path: '',
-                element: <Home/>
+                element: <Home />
             },
             {
                 path: 'accessories',
-                element: <Accessories/>
+                element: <Accessories />
             },
             {
                 path: 'contact',
-                element: <Contact/>
+                element: <Contact />
             },
             {
                 path: '',
-                element: <DetailPage/>
+                element: <DetailPage />
             },
             {
                 path: 'games',
-                element: <Games/>
+                element: <Games />
             },
             {
                 path: 'hardware',
-                element: <Hardware/>
+                element: <Hardware />
             },
+        ]
+    },
+    {
+        path: "/",
+        element: <LoginRoot />,
+        children: [
+            {
+                path: "login",
+                element: <Login />
+            }
         ]
     }
 ]
