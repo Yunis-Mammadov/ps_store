@@ -1,69 +1,65 @@
-* {
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.parentLogin {
+.parentLogin{
     background-image: url("https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/wallpaper.jpg");
-    background-size: cover;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
-.formLogin {
+.formLogin{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     background-color: white;
-    height: fit-content;
+    height: 50vh;
 }
 
-
-.sonyLogo {
-    height: 4rem;
-    width: auto;
-    background-color: black;
+.loginInput{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.sonyLogo img {
-    width: 100px;
-}
-
-.loginInput {
-    display: flex;
-    justify-content: center;
-    align-content: center;
     flex-direction: column;
-    height: 30vh;
     gap: 10px;
 }
 
-.loginInput input {
+.loginInput input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 300px;
-    height: 40px;
-    font-size: 15px;
-    padding-left: 15px;
+    height: 5vh;
+    padding: 10px;
 }
 
-.buttonAndLink {
-    position: relative;
-    bottom: 15px;
+.loginLabel{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    gap: 10px;
+    padding-top: 10px;
 }
 
-.loginButton{
-    width: 80px;
+.loginButtons{
+    padding-bottom: 20px;
+}
+
+.signIn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.signInButton{
+    width: 100px;
     height: 40px;
     border-radius: 10px;
     border: none;

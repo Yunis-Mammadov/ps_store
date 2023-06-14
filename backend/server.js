@@ -18,6 +18,9 @@ app.use("/api/contact",router.contact_routes)
 app.use("/api/games",router.games_routes)
 app.use("/api/hardware",router.hardware_routes)
 app.use("/api/slider",router.slider_routes)
+app.use("/api/register",router.register_routes)
+app.use("/api/login",router.login_routes)
+app.use("/api/user",router.user_routes)
 
 
 PORT = process.env.PORT

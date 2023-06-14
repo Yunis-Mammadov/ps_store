@@ -1,6 +1,11 @@
 const mongoose = require("mongoose")
 
-const UsersModel = new mongoose.model("Users", (
+let validateEmail = function(email) {
+    let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    return re.test(email)
+};
+
+const UserModel = new mongoose.model("Users", (
     new mongoose.Schema({
         username: {
             type: String,
@@ -28,4 +33,4 @@ const UsersModel = new mongoose.model("Users", (
     })
 ))
 
-module.exports = UsersModel
+module.exports = UserModel

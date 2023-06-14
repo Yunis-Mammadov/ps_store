@@ -5,12 +5,10 @@ import styles from '../Login/index.module.css';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (email.trim() !== '' && password.trim() !== '' && confirmPassword.trim() !== '') {
-            // Formu göndermek için istediğiniz işlemleri burada gerçekleştirin
+        if (email.trim() !== '' && password.trim() !== '' ) {
         }
     };
 
@@ -21,8 +19,6 @@ const Login = () => {
             setEmail(value);
         } else if (name === 'password') {
             setPassword(value);
-        } else if (name === 'confirm_password') {
-            setConfirmPassword(value);
         }
     };
 
@@ -34,16 +30,16 @@ const Login = () => {
             <div className={styles.parentLogin}>
                 <form className={styles.formLogin} onSubmit={handleSubmit}>
                     <div>
-                        <div className={styles.sonyLogo}>
-                            <img src="https://media.direct.playstation.com/is/image/sierialto/sony-logo@3x?$Icons$" alt="" />
-                        </div>
                         <div>
-                            <img src="https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/logo_playstation.png" alt="" />
+
+                            <div>
+                                <img src="https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/logo_playstation.png" alt="" />
+                            </div>
                         </div>
+                        <label className={styles.loginLabel}>
+                            Sign in to PlayStation with one of your Sony account
+                        </label>
                     </div>
-                    <label style={{ fontSize: '15px', marginTop: '10px' }}>
-                        Sign in to PlayStation with one of your Sony account
-                    </label>
                     <div className={styles.loginInput}>
                         <div>
                             <input
@@ -63,28 +59,23 @@ const Login = () => {
                                 onChange={handleInputChange}
                             />
                         </div>
-                        <div>
-                            <input
-                                type="password"
-                                placeholder="Confirm Password"
-                                name="confirm_password"
-                                value={confirmPassword}
-                                onChange={handleInputChange}
-                            />
-                        </div>
                     </div>
-                    <div className={styles.buttonAndLink}>
-                        <div>
+                    <div className={styles.loginButtons}>
+                        <div className={styles.signIn}>
                             <button
                                 type="submit"
-                                className={`${styles.loginButton} ${email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '' ? styles.disabledButton : ''}`}
-                                disabled={email.trim() === '' || password.trim() === '' || confirmPassword.trim() === ''}
+                                className={`${styles.signInButton} ${email.trim() === '' || password.trim() === '' ? styles.disabledButton : ''}`}
+                                disabled={email.trim() === '' || password.trim() === '' }
                             >
                                 Sign In
                             </button>
                         </div>
                         <div>
-                            <a href="">ACCOUNT VAR?</a>
+                            <button onClick={() => {
+                                window.location.href = "register";
+                            }} style={{
+                                padding: "10px 100px"
+                            }}>Create New Account</button>
                         </div>
                     </div>
                 </form>
