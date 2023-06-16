@@ -1,13 +1,15 @@
 const mongoose = require("mongoose")
+const jwt = require('jsonwebtoken');
 
-let validateEmail = function(email) {
+
+let validateEmail = function (email) {
     let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return re.test(email)
 };
 
 const UserModel = new mongoose.model("Users", (
     new mongoose.Schema({
-        username: {
+        name: {
             type: String,
             required: true,
             trim: true,

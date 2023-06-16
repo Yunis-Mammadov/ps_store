@@ -3,7 +3,10 @@ import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import styles from "../Register/index.module.css"
-import { signUP } from '../../../api/request';
+import { signUP, getUsers } from '../../../api/request';
+import * as Yup from "yup"
+import { useFormik } from "formik"
+
 
 const Register = () => {
     const [name, setName] = useState('');
@@ -21,6 +24,10 @@ const Register = () => {
             return;
         }
 
+        if (password !== confirmPassword) {
+            return
+        }
+
         const user = {
             name: name,
             password: password,
@@ -35,10 +42,12 @@ const Register = () => {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Kullanıcı başarıyla kaydedildi!',
+                    title: 'Wohohohoh',
                     showConfirmButton: false,
                     timer: 1200
                 });
+                const token = response.data.token;
+                await getUsers(token);
                 navigate('/login');
             }
         } catch (error) {
@@ -64,6 +73,30 @@ const Register = () => {
             setConfirmPassword(value);
         }
     };
+
+    const formik = useFormik({
+        initialValues: {
+            imageURL: "",
+            name: "",
+            description: ""
+        },
+        // validationSchema: Yup.object({
+        //     password: Yup.string()
+        //         .min(8, 'Password must be 8 characters long')
+        //         .matches(/[0-9]/, 'Password requires a number')
+        //         .matches(/[a-z]/, 'Password requires a lowercase letter')
+        //         .matches(/[A-Z]/, 'Password requires an uppercase letter')
+        //         .matches(/[^\w]/, 'Password requires a symbol'),
+        //     confirmPassword: Yup.string()
+        //         .oneOf([Yup.ref('pass'), null], 'Must match "password" field value'),
+        // }),
+
+        // // onSubmit: async (values) => {
+        // //     await postServer(values);
+        // //     setServer({ imageURL: "", name: "", description: "" })
+        // // }
+    })
+
 
     return (
         <>
@@ -114,7 +147,8 @@ const Register = () => {
                                 placeholder="Confirm Password"
                                 name="confirmPassword"
                                 value={confirmPassword}
-                                onChange={handleInputChange}
+                                onChange={handleInputChange
+                                }
                             />
                         </div>
                     </div>
@@ -123,7 +157,7 @@ const Register = () => {
                             <button
                                 type="submit"
                                 className={`${styles.RegisterButton} ${name.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '' ? styles.disabledButton : ''}`}
-                                disabled={name.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === ''}
+                                disabled={name.trim() === '' || email.trim() === '' || password.trim() === '' || password !== confirmPassword}
                             >
                                 Sign Up
                             </button>

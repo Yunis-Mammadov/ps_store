@@ -31,7 +31,6 @@ const Login = () => {
                 <form className={styles.formLogin} onSubmit={handleSubmit}>
                     <div>
                         <div>
-
                             <div>
                                 <img src="https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/logo_playstation.png" alt="" />
                             </div>
