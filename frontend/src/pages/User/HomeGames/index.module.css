@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.HomeGamesCard {
+    max-width: 400px;
+    height: 100%;
+}
+
+
+.HomeGamesImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+
+.HomeGamesImg:hover {
+    cursor: pointer;
+    filter: brightness(80%);
+}
+
+.top10Games{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.top10Label{
+    width: 100%;
+    margin-left: 170px;
+}
+
+.top10Label > p{
+    font-size: 1.525rem;
+}

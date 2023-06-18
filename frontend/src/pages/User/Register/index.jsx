@@ -6,6 +6,8 @@ import styles from "../Register/index.module.css"
 import { signUP, getUsers } from '../../../api/request';
 import * as Yup from "yup"
 import { useFormik } from "formik"
+import CloseIcon from '@mui/icons-material/Close';
+
 
 
 const Register = () => {
@@ -107,6 +109,21 @@ const Register = () => {
                 <form className={styles.formRegister} onSubmit={handleSubmit}>
                     <div>
                         <div>
+                            <CloseIcon onClick={() => {
+                                window.location.href = "home"
+                            }}
+                                sx={{
+                                    position: "absolute",
+                                    top: "125px",
+                                    right: "580px",
+                                    fontSize: "27px",
+                                    color: "rgb(158, 153, 153)",
+                                    transition: 0.5,
+                                    "&:hover": {
+                                        cursor: "pointer",
+                                        color: "rgb(114, 111, 111);"
+                                    }
+                                }} />
                             <img src="https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/logo_playstation.png" alt="" />
                         </div>
                     </div>

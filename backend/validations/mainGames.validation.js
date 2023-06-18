@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const GamesPostSchema = Joi.object({
+const mainGamesPostSchema = Joi.object({
     name: Joi.string().max(30).min(2).required(),
     price: Joi.number().positive().required(),
     country: Joi.string().max(30).min(2).required(),
@@ -12,4 +12,4 @@ const GamesPostSchema = Joi.object({
     isVibration: Joi.boolean().required()
 })
 
-module.exports = GamesPostSchema
+module.exports = mainGamesPostSchema

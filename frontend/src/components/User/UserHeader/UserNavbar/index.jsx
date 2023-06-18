@@ -15,7 +15,6 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from "../Modal";
 import styles from "../UserNavbar/index.module.css";
-import Login from '../../../../pages/User/Login';
 
 const drawerWidth = 300;
 const navItems = [

@@ -1,6 +1,6 @@
-const GamesModel = require("../models/games.model")
+const GamesModel = require("../models/homePageGames.model")
 
-const gamesController = {
+const mainGamesController = {
     getAll: async (req, res) => {
         const { name } = req.query
         const games = await GamesModel.find()
@@ -66,4 +66,4 @@ const gamesController = {
 }
 
 
-module.exports = gamesController
+module.exports = mainGamesController

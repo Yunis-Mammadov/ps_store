@@ -1,0 +1,31 @@
+/* .container {
+    display: grid;
+    grid-template-columns: 2fr 6fr 1fr;
+}
+
+.section1 {
+    background-color: white;
+}
+
+.section2 {
+    background-color: rgb(245, 245, 245);
+    padding: 20px;
+    margin-top: 100px;
+}
+
+.imgContainer {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .CardsImg {
+    max-width: 100%;
+    height: auto;
+  } */

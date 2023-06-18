@@ -72,3 +72,7 @@
 .disabledButton{
     opacity: 0.5;
 }
+
+.loginRemove{
+    color: rgb(158, 153, 153);
+}

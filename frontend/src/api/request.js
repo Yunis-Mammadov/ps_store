@@ -23,3 +23,13 @@ export const getUsers = async (token) => {
     throw error
   }
 };
+
+
+export const getAllGames = async () => {
+     let Games;
+     await axios.get(`${BASE_URL}/api/homegames`)
+     .then((res) => {
+      Games = res.data
+     })
+     return Games
+}

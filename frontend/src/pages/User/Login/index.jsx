@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import styles from '../Login/index.module.css';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -8,7 +9,7 @@ const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (email.trim() !== '' && password.trim() !== '' ) {
+        if (email.trim() !== '' && password.trim() !== '') {
         }
     };
 
@@ -32,6 +33,21 @@ const Login = () => {
                     <div>
                         <div>
                             <div>
+                                <CloseIcon onClick={() => {
+                                    window.location.href = "home"
+                                }}
+                                    sx={{
+                                        position: "absolute",
+                                        top: "195px",
+                                        right: "580px",
+                                        fontSize: "27px",
+                                        color: "rgb(158, 153, 153)",
+                                        transition: 0.5,
+                                        "&:hover": {
+                                            cursor: "pointer",
+                                            color: "rgb(114, 111, 111);"
+                                        }
+                                    }} />
                                 <img src="https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/logo_playstation.png" alt="" />
                             </div>
                         </div>
@@ -64,7 +80,7 @@ const Login = () => {
                             <button
                                 type="submit"
                                 className={`${styles.signInButton} ${email.trim() === '' || password.trim() === '' ? styles.disabledButton : ''}`}
-                                disabled={email.trim() === '' || password.trim() === '' }
+                                disabled={email.trim() === '' || password.trim() === ''}
                             >
                                 Sign In
                             </button>

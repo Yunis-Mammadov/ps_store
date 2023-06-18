@@ -5,6 +5,10 @@ const verifyJWTMiddleware = async (req, res, next) => {
     } else {
         try {
             const decoded = jwt.verify(token, process.env.SECRET_KEY);
+            // const { error, value } = verifyJWTMiddlewarePostSchema.validate(req.body);
+            // if (error) {
+            //     return res.status(400).send({ message: error.details[0].message })
+            // }
             req.userId = decoded.id;
             next();
         } catch (error) {

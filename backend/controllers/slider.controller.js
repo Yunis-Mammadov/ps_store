@@ -38,13 +38,12 @@ const sliderController = {
     },
     edit: async (req, res) => {
         const id = req.params.id
-        const { name } = req.body
         const updatingSlider = { 
             imageURL: imageURL
         }
         const slider = await SliderModel.findByIdAndUpdate(id, updatingSlider)
         res.status(200).send({
-            message: `${slider.name} update successfully!`,
+            message: `${slider.imageURL} update successfully!`,
         })
     }
 }
