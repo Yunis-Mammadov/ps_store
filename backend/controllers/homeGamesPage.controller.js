@@ -1,9 +1,9 @@
-const GamesModel = require("../models/homePageGames.model")
+const homeGamesModel = require("../models/homePageGames.model")
 
 const homeGamesController = {
     getAll: async (req, res) => {
         const { name } = req.query
-        const games = await GamesModel.find()
+        const games = await homeGamesModel.find()
         if (!name) {
             res.status(200).send(games)
         } else {
@@ -15,22 +15,23 @@ const homeGamesController = {
     },
     getOne: async (req, res) => {
         const { id } = req.params
-        const games = await GamesModel.findById(id)
+        const games = await homeGamesModel.findById(id)
         res.status(200).send(games)
     },
     delete: async (req, res) => {
         const id = req.params.id
-        const games = await GamesModel.findByIdAndDelete(id)
+        const games = await homeGamesModel.findByIdAndDelete(id)
         res.status(203).send({
-            message: `${games.name} deleted successfully!`
+            message: `${games} deleted successfully!`
         })
     },
     post: async (req, res) => {
-        const { name, price, country, imageURL, platform, genre, language, coop, vibration } = req.body
-        const newGames = new GamesModel({
+        const { name, price, country, year, imageURL, platform, genre, language, coop, vibration } = req.body
+        const newGames = new homeGamesModel({
             name: name,
             price: price,
             country: country,
+            year: year,
             imageURL: imageURL,
             platform: platform,
             genre: genre,
@@ -51,6 +52,7 @@ const homeGamesController = {
             name: name,
             price: price,
             country: country,
+            year: year,
             imageURL: imageURL,
             platform: platform,
             genre: genre,
@@ -58,7 +60,7 @@ const homeGamesController = {
             coop: coop,
             vibration: vibration
         }
-        const games = await GamesModel.findByIdAndUpdate(id, updatingGames)
+        const games = await homeGamesModel.findByIdAndUpdate(id, updatingGames)
         res.status(200).send({
             message: `${games.name} update successfully!`,
         })

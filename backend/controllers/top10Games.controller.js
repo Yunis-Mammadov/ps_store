@@ -1,9 +1,9 @@
-const mainGamesModel = require("../models/mainGames.model")
+const top10GamesModel = require("../models/top10Games.model")
 
-const mainGamesController = {
+const top10GamesController = {
     getAll: async (req, res) => {
         const { name } = req.query
-        const games = await mainGamesModel.find()
+        const games = await top10GamesModel.find()
         if (!name) {
             res.status(200).send(games)
         } else {
@@ -15,29 +15,20 @@ const mainGamesController = {
     },
     getOne: async (req, res) => {
         const { id } = req.params
-        const games = await mainGamesModel.findById(id)
+        const games = await top10GamesModel.findById(id)
         res.status(200).send(games)
     },
     delete: async (req, res) => {
         const id = req.params.id
-        const games = await mainGamesModel.findByIdAndDelete(id)
+        const games = await top10GamesModel.findByIdAndDelete(id)
         res.status(203).send({
-            message: `${games.name} deleted successfully!`
+            message: `${games} deleted successfully!`
         })
     },
     post: async (req, res) => {
-        const { name, price, country, year, imageURL, platform, genre, language, coop, vibration } = req.body
-        const newGames = new mainGamesModel({
-            name: name,
-            price: price,
-            country: country,
-            year: year,
+        const { imageURL  } = req.body
+        const newGames = new top10GamesModel({
             imageURL: imageURL,
-            platform: platform,
-            genre: genre,
-            language: language,
-            coop: coop,
-            vibration: vibration
         })
         await newGames.save()
         res.status(201).send({
@@ -49,18 +40,9 @@ const mainGamesController = {
         const id = req.params.id
         const { name } = req.body
         const updatingGames = {
-            name: name,
-            price: price,
-            country: country,
-            year: year,
             imageURL: imageURL,
-            platform: platform,
-            genre: genre,
-            language: language,
-            coop: coop,
-            vibration: vibration
         }
-        const games = await mainGamesModel.findByIdAndUpdate(id, updatingGames)
+        const games = await top10GamesModel.findByIdAndUpdate(id, updatingGames)
         res.status(200).send({
             message: `${games.name} update successfully!`,
         })
@@ -68,4 +50,4 @@ const mainGamesController = {
 }
 
 
-module.exports = mainGamesController
+module.exports = top10GamesController

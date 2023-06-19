@@ -1,4 +1,4 @@
-const mainGamesPostSchema = require('../validations/homeGamesPage.validation')
+const mainGamesPostSchema = require('../validations/mainGames.validation')
 
 const mainGamesPostMiddleware = (req, res, next) => {
   const { error } = mainGamesPostSchema.validate(req.body);

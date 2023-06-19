@@ -2,11 +2,34 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .HomeGamesCard {
     max-width: 400px;
     height: 100%;
+}
+
+.HomeGamesGrid{
+    border: 1px solid red;
+}
+
+.HomeGamesSliderCard {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.HomeGamesSliderImg {
+    width: 216px;
+    height: 216px;
+}
+
+.top10Carousel {
+    width: 90%;
+    margin: 0 auto;
 }
 
 
@@ -23,6 +46,7 @@
     filter: brightness(80%);
 }
 
+
 .top10Games{
     display: flex;
     justify-content: center;
@@ -33,7 +57,7 @@
 
 .top10Label{
     width: 100%;
-    margin-left: 170px;
+    margin-left: 105px;
 }
 
 .top10Label > p{

@@ -5,6 +5,7 @@ const homeGamesModel = new mongoose.model("Games",(
         name: String,
         price: Number,
         country: String,
+        year: Number,
         imageURL: String,
         platform: String,
         genre: String,
