@@ -56,10 +56,40 @@
 }
 
 .top10Label{
-    width: 100%;
-    margin-left: 105px;
+    margin-left: 100px;
+    font-size: 1.525rem;
 }
 
-.top10Label > p{
+.newGamesLabel{
     font-size: 1.525rem;
+}
+
+.btnAndLabel{
+    display: flex;
+    justify-content: space-around;
+    gap: 850px;
+}
+
+.homeBtn{
+    color: rgb(0, 104, 189);
+    border: none;
+    font-size: 1rem;
+    background-color: transparent;
+    transition: 0.4s;
+    padding: 10px;
+}
+
+.homeBtn:hover{
+    background-color: rgb(243, 243, 243);
+    border-radius: 10px;
+    cursor: pointer;
+    color: rgb(0,88,87);
+}
+
+.homeImg{
+    margin-top: 120px;
+    width: 100%;
+    object-fit: cover;
+    height: 60vh;
+
 }

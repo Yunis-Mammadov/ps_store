@@ -77,8 +77,13 @@ const HomeGames = () => {
                 </Box>
             </Box>
             <Box sx={{ marginTop: "100px" }}>
-                <Box className={styles.top10Label}>
-                    <p>New Games</p>
+                <Box className={styles.btnAndLabel}>
+                    <Box>
+                        <p className={styles.newGamesLabel}>New Games</p>
+                    </Box>
+                    <Box>
+                        <button className={styles.homeBtn}>View All</button>
+                    </Box>
                 </Box>
                 <Box>
                     <Carousel className={styles.top10Carousel} responsive={responsive} infinite={true} draggable={false} swipeable={false}>
@@ -91,8 +96,13 @@ const HomeGames = () => {
                 </Box>
             </Box>
             <Box sx={{ marginTop: "100px" }}>
-                <Box className={styles.top10Label}>
-                    <p>Free to Play</p>
+                <Box className={styles.btnAndLabel}>
+                    <Box >
+                        <p className={styles.newGamesLabel}>Free to Play</p>
+                    </Box>
+                    <Box>
+                        <button className={styles.homeBtn}>View All</button>
+                    </Box>
                 </Box>
                 <Box>
                     <Carousel className={styles.top10Carousel} responsive={responsive} infinite={true} draggable={false} swipeable={false}>
@@ -103,6 +113,9 @@ const HomeGames = () => {
                         ))}
                     </Carousel>
                 </Box>
+            </Box>
+            <Box>
+                <img className={styles.homeImg} src="https://image.api.playstation.com/pr/bam-art/146/087/c2365174-0742-4f05-9dc9-210b8bed59f4.jpg?w=1920" alt="" />
             </Box>
         </>
     );

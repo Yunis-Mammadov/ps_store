@@ -110,7 +110,7 @@ const Register = () => {
                     <div>
                         <div>
                             <CloseIcon onClick={() => {
-                                window.location.href = "home"
+                                window.location.href = "http://localhost:3000"
                             }}
                                 sx={{
                                     position: "absolute",

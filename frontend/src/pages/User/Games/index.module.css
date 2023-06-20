@@ -1,4 +1,4 @@
-/* .container {
+.container {
     display: grid;
     grid-template-columns: 2fr 6fr 1fr;
 }
@@ -13,19 +13,48 @@
     margin-top: 100px;
 }
 
-.imgContainer {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 8px;
+
+.GamesCard{
+    width: 300px;
+    height: 52vh;
+}
+
+.GamesCardImgBox{
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .CardsImg {
-    max-width: 100%;
-    height: auto;
-  } */
+    width: 100%;
+    /* background-color: blue; */
+    height: 40vh;
+}
+
+.GamesCardImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    height: 35vh;
+}
+
+.nameAndPrice{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 60px;
+}
+
+.gamesCardBtn{
+    margin-top: 15px;
+    margin-left: 25px;
+}
+
+.gamesCardBtn button{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border: none;
+    background-color: white;
+    padding: 8px 15px;
+    border: 2px solid rgb(205,61,15);
+}

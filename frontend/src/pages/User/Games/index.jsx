@@ -1,85 +1,55 @@
+import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material";
+import styles from "../Games/index.module.css";
+import Grid from "@mui/material/Grid";
+import { useEffect, useState } from "react";
+import { getAllGames } from "../../../api/request";
+
 const Games = () => {
+  const [mainGames, setMainGames] = useState([]);
+
+  useEffect(() => {
+    getAllGames().then((data) => {
+      setMainGames(data);
+    });
+  }, []);
+
   return (
     <>
-    hello
-      {/* <div className={styles.container}>
+      <div className={styles.container}>
         <div className={styles.section1}>
           <button>Messi</button>
         </div>
         <div className={styles.section2}>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6} md={4}>
-              <Card sx={{ minWidth: 275, marginBottom: 20 }}>
-                <CardContent>
-                  <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    Word of the Day
-                  </Typography>
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    adjective
-                  </Typography>
-                  <Typography variant="body2">
-                    well meaning and kindly.
-                    <br />
-                    {'"a benevolent smile"'}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="small">Learn More</Button>
-                </CardActions>
-              </Card>
-            </Grid>
-            <Grid item xs={12} sm={6} md={8}>
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <Card sx={{ minWidth: 275, marginBottom: 20 }}>
-                    <CardContent>
-                      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                        Word of the Day
-                      </Typography>
-                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                        adjective
-                      </Typography>
-                      <Typography variant="body2">
-                        well meaning and kindly.
-                        <br />
-                        {'"a benevolent smile"'}
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small">Learn More</Button>
-                    </CardActions>
+            {mainGames &&
+              mainGames.map((mainGame) => (
+                <Grid item xs={12} sm={6} md={4} key={mainGame.id}>
+                  <Card className={styles.GamesCard}>
+                    <Box className={styles.GamesCardImgBox}>
+                      <img className={styles.GamesCardImg} src={mainGame.imageURL} alt={mainGame.title} />
+                    </Box>
+                    <Box className={styles.nameAndPrice}>
+                      <Box>
+                        <p>{mainGame.name}</p>
+                      </Box>
+                      <Box>
+                        <h4>{mainGame.price === 0 ? "Free" : `${mainGame.price}$`}</h4>
+                      </Box>
+                    </Box>
+                    <Box className={styles.gamesCardBtn}>
+                      <button>Add</button>
+                    </Box>
                   </Card>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Card sx={{ minWidth: 275, marginBottom: 20 }}>
-                    <CardContent>
-                      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                        Word of the Day
-                      </Typography>
-                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                        adjective
-                      </Typography>
-                      <Typography variant="body2">
-                        well meaning and kindly.
-                        <br />
-                        {'"a benevolent smile"'}
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small">Learn More</Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              </Grid>
-            </Grid>
+              ))}
           </Grid>
         </div>
         <div className={styles.section1}>
           <button>Neymar</button>
         </div>
-      </div> */}
+      </div>
     </>
-  )
-}
+  );
+};
 
 export default Games;
