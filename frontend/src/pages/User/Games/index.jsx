@@ -44,9 +44,6 @@ const Games = () => {
               ))}
           </Grid>
         </div>
-        <div className={styles.section1}>
-          <button>Neymar</button>
-        </div>
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import React, { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { getAllGames, getHomeGames, getTop10Games } from '../../../api/request';
+import { getAllCategories, getAllGames, getHomeGames, getTop10Games } from '../../../api/request';
 import styles from "./index.module.css";
 
 const responsive = {
@@ -26,6 +26,7 @@ const HomeGames = () => {
     const [mainGames, setMainGames] = useState([]);
     const [top10Games, setTop10Games] = useState([])
     const [homegames, setHomeGames] = useState([])
+    const [categories, setCategories] = useState([])
     const filteredGames = mainGames.filter(mainGame => mainGame.year > 2022);
     const freeToPlayGames = mainGames.filter(mainGame => mainGame.price === 0);
 
@@ -46,6 +47,12 @@ const HomeGames = () => {
     useEffect(() => {
         getTop10Games().then(data => {
             setTop10Games(data);
+        });
+    }, []);
+   
+    useEffect(() => {
+        getAllCategories().then(data => {
+            setCategories(data);
         });
     }, []);
 
@@ -116,6 +123,26 @@ const HomeGames = () => {
             </Box>
             <Box>
                 <img className={styles.homeImg} src="https://image.api.playstation.com/pr/bam-art/146/087/c2365174-0742-4f05-9dc9-210b8bed59f4.jpg?w=1920" alt="" />
+            </Box>
+            <Box>
+                <Box>
+                    <p style={{
+                        marginTop: "70px",
+                        textAlign: "center",
+                        fontSize: "25px"
+                    }}>See more</p>
+                </Box>
+                <Box>
+                    <Grid container spacing={2} margin={"50px auto"} xs={11}>
+                        {categories && categories.map((category) => (
+                            <Grid item xs={12} key={category._id} sm={6} md={3}>
+                                <Card className={styles.categoriesCard}>
+                                    <img className={styles.HomeGamesImg} src={category.imageURL} alt={category.name} />
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Box>
             </Box>
         </>
     );

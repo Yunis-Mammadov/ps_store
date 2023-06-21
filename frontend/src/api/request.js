@@ -51,3 +51,13 @@ export const getTop10Games = async () => {
      })
      return Games
 }
+
+export const getAllCategories = async () => {
+     let Categories;
+     await axios.get(`${BASE_URL}/api/categories`)
+     .then((res) => {
+      Categories = res.data
+     })
+     return Categories
+}
+
