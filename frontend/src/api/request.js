@@ -61,3 +61,21 @@ export const getAllCategories = async () => {
      return Categories
 }
 
+export const getAllHardware = async () => {
+  let Hardware;
+  await axios.get(`${BASE_URL}/api/hardware`)
+  .then((res) => {
+    Hardware = res.data
+  })
+  return Hardware
+}
+
+
+export const hardwareVideo = async () => {
+  let hardwareVideo;
+  await axios.get(`${BASE_URL}/api/hardwarevideo`)
+  .then((res) => {
+    hardwareVideo = res.data
+  })
+  return hardwareVideo
+}

@@ -25,7 +25,15 @@
 .HomeGamesSliderImg {
     width: 216px;
     height: 216px;
+    transition: 0.4s;
 }
+
+
+.HomeGamesSliderImg:hover{
+    cursor: pointer;
+    filter: brightness(80%);
+}
+
 
 .top10Carousel {
     width: 90%;
@@ -37,7 +45,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 
@@ -91,5 +99,4 @@
     width: 100%;
     object-fit: cover;
     height: 60vh;
-
 }

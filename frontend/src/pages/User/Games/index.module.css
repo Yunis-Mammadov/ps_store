@@ -1,60 +1,46 @@
-.container {
-    display: grid;
-    grid-template-columns: 2fr 6fr 1fr;
+.gamesCard {
+    max-width: 400px;
+    height: 100%;
 }
 
-.section1 {
-    background-color: white;
-}
-
-.section2 {
-    background-color: rgb(245, 245, 245);
-    padding: 20px;
-    margin-top: 100px;
-}
-
-
-.GamesCard{
-    width: 300px;
-    height: 52vh;
-}
-
-.GamesCardImgBox{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.gamesImg {
     width: 100%;
-    /* background-color: blue; */
-    height: 40vh;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
 }
 
-.GamesCardImg{
+.gamesImg:hover{
+    cursor: pointer;
+    filter: brightness(80%);
+}
+
+.gamesText{
+    font-size: 2.625rem;
+}
+
+.parentGamesFilter{
+    display: flex;
+    justify-content: end;
+}
+
+.gamesFilter{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    width: 90%;
-    height: 35vh;
-}
-
-.nameAndPrice{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 60px;
-}
-
-.gamesCardBtn{
-    margin-top: 15px;
-    margin-left: 25px;
-}
-
-.gamesCardBtn button{
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    border: none;
-    background-color: white;
+    margin-bottom: 25px;
     padding: 8px 15px;
-    border: 2px solid rgb(205,61,15);
+    color: rgb(0,90,189);
+    border: none;
+    gap: 5px;
+    background-color: transparent;
+    transition: 0.4s;
+}
+
+
+.gamesFilter:hover{
+    background-color: rgb(243, 243, 243);
+    border-radius: 10px;
+    cursor: pointer;
+    color: rgba(13, 58, 110, 0.849);
 }

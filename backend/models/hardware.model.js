@@ -4,7 +4,7 @@ const HardwareModel = new mongoose.model("Hardware",(
     new mongoose.Schema({
         imageURL: String,
         name: String,
-        price: Number
+        price: Number,
     })
 ))
 

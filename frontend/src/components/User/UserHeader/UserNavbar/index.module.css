@@ -17,6 +17,10 @@
   width: 2.5rem;
 }
 
+.NavbarImg:hover{
+  cursor: pointer;
+}
+
 .Navbar {
   display: flex;
   justify-content: space-between;

@@ -1,0 +1,77 @@
+.hardwareCard {
+    max-width: 400px;
+    height: 100%;
+}
+
+.hardwareImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.hardwareImg:hover{
+    cursor: pointer;
+    filter: brightness(80%);
+}
+
+.hardwareText{
+    font-size: 2.625rem;
+}
+
+.parentHardwareFilter{
+    display: flex;
+    justify-content: end;
+}
+
+.hardwareFilter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 8px 15px;
+    color: rgb(0,90,189);
+    border: none;
+    gap: 5px;
+    background-color: transparent;
+    transition: 0.4s;
+}
+
+
+.hardwareFilter:hover{
+    background-color: rgb(243, 243, 243);
+    border-radius: 10px;
+    cursor: pointer;
+    color: rgba(13, 58, 110, 0.849);
+}
+
+.hardwareVideo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hardwareVideo label{
+    font-size: 30px;
+}
+
+.hardwareLabelAndButton{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hardwareLabelAndButton button{
+    padding: 8px 15px;
+    background-color: transparent;
+    font-size: 17px;
+    border: 2px solid rgb(0,112,204); ;
+}
+
+.hardwareLabelAndButton button:hover{
+    cursor: pointer;
+}
+

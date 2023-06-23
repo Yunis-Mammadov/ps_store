@@ -75,7 +75,9 @@ function UserNavbar() {
             <Box className={styles.Navbar}>
               <Box className={styles.LinksAndLogo}>
                 <Box>
-                  <img className={styles.NavbarImg} src="https://media.direct.playstation.com/is/image/sierialto/ps-logo-us?$Icons$" alt="" />
+                  <img className={styles.NavbarImg} onClick={() => {
+                    window.location.href = "http://localhost:3000/";
+                  }} src="https://media.direct.playstation.com/is/image/sierialto/ps-logo-us?$Icons$" alt="" />
                 </Box>
                 <Box sx={{ width: "100%", display: { xs: 'none', sm: 'block' } }}>
                   {navItems.map((item) => (
@@ -111,7 +113,7 @@ function UserNavbar() {
                       fontSize: "15px",
                       backgroundColor: "rgb(25,118,210)",
                       color: "white",
-                      cursor:"pointer"
+                      cursor: "pointer"
                     }}
                     variant="contained"
                   >

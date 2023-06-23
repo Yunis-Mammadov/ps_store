@@ -1,52 +1,45 @@
-import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material";
-import styles from "../Games/index.module.css";
-import Grid from "@mui/material/Grid";
-import { useEffect, useState } from "react";
-import { getAllGames } from "../../../api/request";
+import React, { useEffect, useState } from 'react'
+import Grid from "@mui/material/Grid"
+import Card from "@mui/material/Card"
+import { getAllGames } from '../../../api/request'
+import styles from "../Games/index.module.css"
+import FilterListIcon from '@mui/icons-material/FilterList';
 
 const Games = () => {
-  const [mainGames, setMainGames] = useState([]);
+  const [games, setGames] = useState([])
 
   useEffect(() => {
-    getAllGames().then((data) => {
-      setMainGames(data);
-    });
-  }, []);
+    getAllGames().then(data => {
+      setGames(data)
+    })
+  }, [])
 
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.section1}>
-          <button>Messi</button>
+      <div style={{ margin: "80px" }}>
+        <div style={{ marginBottom: "20px" }}>
+          <p className={styles.gamesText}>All Games</p>
         </div>
-        <div className={styles.section2}>
-          <Grid container spacing={2}>
-            {mainGames &&
-              mainGames.map((mainGame) => (
-                <Grid item xs={12} sm={6} md={4} key={mainGame.id}>
-                  <Card className={styles.GamesCard}>
-                    <Box className={styles.GamesCardImgBox}>
-                      <img className={styles.GamesCardImg} src={mainGame.imageURL} alt={mainGame.title} />
-                    </Box>
-                    <Box className={styles.nameAndPrice}>
-                      <Box>
-                        <p>{mainGame.name}</p>
-                      </Box>
-                      <Box>
-                        <h4>{mainGame.price === 0 ? "Free" : `${mainGame.price}$`}</h4>
-                      </Box>
-                    </Box>
-                    <Box className={styles.gamesCardBtn}>
-                      <button>Add</button>
-                    </Box>
-                  </Card>
-                </Grid>
-              ))}
+        <div className={styles.parentGamesFilter}>
+          <div className={styles.gamesFilter}>
+            <div><FilterListIcon /></div>
+            <div><p>Sort and Filter</p></div>
+          </div>
+        </div>
+        <div>
+          <Grid container spacing={4}>
+            {games && games.map((game) => (
+              <Grid item xs={2} key={game._id}>
+                <Card className={styles.gamesCard}>
+                  <img className={styles.gamesImg} src={game.imageURL} alt={game.name} />
+                </Card>
+              </Grid>
+            ))}
           </Grid>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Games;
+export default Games

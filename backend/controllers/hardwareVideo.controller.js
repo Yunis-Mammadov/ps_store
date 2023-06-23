@@ -1,9 +1,9 @@
-const HardwareModel = require("../models/hardware.model")
+const HardwareVideoModel = require("../models/hardwareVideo.model")
 
-const hardwareController = {
+const hardwareVideoController = {
     getAll: async (req, res) => {
         const { name } = req.query
-        const hardware = await HardwareModel.find()
+        const hardware = await HardwareVideoModel.find()
         if (!name) {
             res.status(200).send(hardware)
         } else {
@@ -15,22 +15,21 @@ const hardwareController = {
     },
     getOne: async (req, res) => {
         const { id } = req.params
-        const hardware = await HardwareModel.findById(id)
+        const hardware = await HardwareVideoModel.findById(id)
         res.status(200).send(hardware)
     },
     delete: async (req, res) => {
         const id = req.params.id
-        const hardware = await HardwareModel.findByIdAndDelete(id)
+        const hardware = await HardwareVideoModel.findByIdAndDelete(id)
         res.status(203).send({
-            message: `${hardware.name} deleted successfully!`
+            message: `${hardware.video} deleted successfully!`
         })
     },
     post: async (req, res) => {
-        const { imageURL, name, price } = req.body
-        const newHardware = new HardwareModel({
-            imageURL: imageURL,
-            name: name,
-            price: price,
+        const { video, name } = req.body
+        const newHardware = new HardwareVideoModel({
+            video: video,
+            name: name
         })
         await newHardware.save()
         res.status(201).send({
@@ -42,11 +41,10 @@ const hardwareController = {
         const id = req.params.id
         const { name } = req.body
         const updatingHardware = { 
-            imageURL: imageURL,
-            name: name,
-            price: price,
+            video: video,
+            name: name
         }
-        const hardware = await HardwareModel.findByIdAndUpdate(id, updatingHardware)
+        const hardware = await HardwareVideoModel.findByIdAndUpdate(id, updatingHardware)
         res.status(200).send({
             message: `${hardware.name} update successfully!`,
         })
@@ -54,4 +52,4 @@ const hardwareController = {
 }
 
 
-module.exports = hardwareController
+module.exports = hardwareVideoController
