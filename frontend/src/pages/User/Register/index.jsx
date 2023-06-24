@@ -82,21 +82,6 @@ const Register = () => {
             name: "",
             description: ""
         },
-        // validationSchema: Yup.object({
-        //     password: Yup.string()
-        //         .min(8, 'Password must be 8 characters long')
-        //         .matches(/[0-9]/, 'Password requires a number')
-        //         .matches(/[a-z]/, 'Password requires a lowercase letter')
-        //         .matches(/[A-Z]/, 'Password requires an uppercase letter')
-        //         .matches(/[^\w]/, 'Password requires a symbol'),
-        //     confirmPassword: Yup.string()
-        //         .oneOf([Yup.ref('pass'), null], 'Must match "password" field value'),
-        // }),
-
-        // // onSubmit: async (values) => {
-        // //     await postServer(values);
-        // //     setServer({ imageURL: "", name: "", description: "" })
-        // // }
     })
 
 
@@ -108,21 +93,9 @@ const Register = () => {
             <div className={styles.parentRegister}>
                 <form className={styles.formRegister} onSubmit={handleSubmit}>
                     <div>
-                        <div>
-                            <CloseIcon onClick={() => {
-                                window.location.href = "http://localhost:3000"
-                            }}
-                                sx={{
-                                    position: "absolute",
-                                    top: "125px",
-                                    right: "580px",
-                                    fontSize: "27px",
-                                    color: "rgb(158, 153, 153)",
-                                    transition: 0.5,
-                                    "&:hover": {
-                                        cursor: "pointer",
-                                        color: "rgb(114, 111, 111);"
-                                    }
+                        <div className={styles.logoContainer}>
+                            <CloseIcon  className={styles.closeIcon} onClick={() => {
+                                    window.location.href = "http://localhost:3000"
                                 }} />
                             <img src="https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/logo_playstation.png" alt="" />
                         </div>

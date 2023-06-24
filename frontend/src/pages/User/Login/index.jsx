@@ -32,22 +32,10 @@ const Login = () => {
                 <form className={styles.formLogin} onSubmit={handleSubmit}>
                     <div>
                         <div>
-                            <div>
-                                <CloseIcon onClick={() => {
+                            <div className={styles.logoContainer}>
+                                <CloseIcon className={styles.closeIcon} onClick={() => {
                                     window.location.href = "http://localhost:3000"
-                                }}
-                                    sx={{
-                                        position: "absolute",
-                                        top: "195px",
-                                        right: "580px",
-                                        fontSize: "27px",
-                                        color: "rgb(158, 153, 153)",
-                                        transition: 0.5,
-                                        "&:hover": {
-                                            cursor: "pointer",
-                                            color: "rgb(114, 111, 111);"
-                                        }
-                                    }} />
+                                }}/>
                                 <img src="https://my.account.sony.com/central/signin/9fe91826ca150e7fa133749535fa2ed86e5c1b70/assets/images/logo_playstation.png" alt="" />
                             </div>
                         </div>
@@ -88,9 +76,7 @@ const Login = () => {
                         <div>
                             <button onClick={() => {
                                 window.location.href = "register";
-                            }} style={{
-                                padding: "10px 100px"
-                            }}>Create New Account</button>
+                            }} className={styles.loginToRegister}>Create New Account</button>
                         </div>
                     </div>
                 </form>
