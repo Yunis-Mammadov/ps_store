@@ -22,15 +22,16 @@ const hardwareController = {
         const id = req.params.id
         const hardware = await HardwareModel.findByIdAndDelete(id)
         res.status(203).send({
-            message: `${hardware.name} deleted successfully!`
+            message: `${hardware.video} deleted successfully!`
         })
     },
     post: async (req, res) => {
-        const { imageURL, name, price } = req.body
+        const { imageURL, name, price, console } = req.body
         const newHardware = new HardwareModel({
             imageURL: imageURL,
             name: name,
             price: price,
+            console: console
         })
         await newHardware.save()
         res.status(201).send({
@@ -40,11 +41,12 @@ const hardwareController = {
     },
     edit: async (req, res) => {
         const id = req.params.id
-        const { name } = req.body
+        const { name, imageURL, price, console } = req.body
         const updatingHardware = { 
             imageURL: imageURL,
             name: name,
             price: price,
+            console: console
         }
         const hardware = await HardwareModel.findByIdAndUpdate(id, updatingHardware)
         res.status(200).send({

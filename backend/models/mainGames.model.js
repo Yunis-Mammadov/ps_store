@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const mainGamesModel = new mongoose.model("mainGames",(
+const mainGamesModel = new mongoose.model("mainGames", (
     new mongoose.Schema({
         name: String,
         price: Number,
@@ -10,8 +10,9 @@ const mainGamesModel = new mongoose.model("mainGames",(
         platform: String,
         genre: String,
         language: String,
-        coop: Boolean,
-        vibration: Boolean
+        voice: String,
+        release: String,
+        publisher: String
     })
 ))
 

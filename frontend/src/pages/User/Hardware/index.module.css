@@ -1,77 +1,481 @@
-.hardwareCard {
-    max-width: 400px;
-    height: 100%;
+@media screen and (min-width: 1268px) {
+    .hardwareCard {
+        width: 100%;
+        height: 65vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: none;
+    }
+
+
+    .hardwareCard img {
+        width: 80%;
+    }
+
+    .hardwareAddAndLabel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hardwareLabel {
+        font-size: 15px;
+        width: 70%;
+    }
+
+
+    .hardwareCard:hover {
+        cursor: pointer;
+    }
+
+    .hardwareButtonContainer {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hardwareButton {
+        padding: 10px 20px;
+        border: 2px solid rgb(205, 61, 15);
+        color: rgb(205, 61, 15);
+        font-weight: 700;
+        border-radius: 10px;
+        background-color: transparent;
+        transition: 0.5s ease-in-out;
+    }
+
+    .hardwareButton:hover {
+        cursor: pointer;
+        color: rgba(0, 0, 0, 0.819);
+        background-color: rgb(205, 61, 15);
+        border: 2px solid transparent;
+    }
+
+    .hardwareText {
+        font-size: 2.625rem;
+    }
+
+    .parentHardwareFilter {
+        display: flex;
+        justify-content: end;
+    }
+
+    .hardwareFilter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 25px;
+        padding: 8px 15px;
+        color: rgb(0, 90, 189);
+        border: none;
+        gap: 5px;
+        background-color: transparent;
+        transition: 0.4s;
+    }
+
+    .labelContainer {
+        font-size: 25px;
+        margin: 60px;
+    }
+
+
+    .hardwareFilter:hover {
+        background-color: rgb(243, 243, 243);
+        border-radius: 10px;
+        cursor: pointer;
+        color: rgba(13, 58, 110, 0.849);
+    }
+
+    .hardwareVideo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 400px;
+        width: 100%;
+        overflow-y: hidden;
+    }
+
+    .hardwareVideo label {
+        font-size: 30px;
+    }
+
+    .hardwareLabelAndButton {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hardwareLabelAndButton button {
+        padding: 8px 15px;
+        background-color: transparent;
+        font-size: 15px;
+        border: 2px solid rgb(0, 112, 204);
+        transition: 0.4s;
+    }
+
+    .hardwareLabelAndButton button:hover {
+        padding: 8px 15px;
+        background-color: rgb(0, 112, 204);
+        font-size: 15px;
+        border: 2px solid transparent;
+        color: white;
+        cursor: pointer;
+    }
 }
 
-.hardwareImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.5s;
+@media screen and (max-width: 1268px) {
+    .hardwareCard {
+        width: 90%;
+        height: 65vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: none;
+    }
+
+
+    .hardwareCard img {
+        width: 75%;
+    }
+
+    .hardwareAddAndLabel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hardwareLabel {
+        font-size: 15px;
+        width: 70%;
+    }
+
+
+    .hardwareCard:hover {
+        cursor: pointer;
+    }
+
+    .hardwareButtonContainer {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hardwareButton {
+        padding: 10px 20px;
+        border: 2px solid rgb(205, 61, 15);
+        color: rgb(205, 61, 15);
+        font-weight: 700;
+        border-radius: 10px;
+        background-color: transparent;
+        transition: 0.5s ease-in-out;
+    }
+
+    .hardwareButton:hover {
+        cursor: pointer;
+        color: rgba(0, 0, 0, 0.819);
+        background-color: rgb(205, 61, 15);
+        border: 2px solid transparent;
+    }
+
+    .hardwareText {
+        font-size: 2.625rem;
+    }
+
+    .parentHardwareFilter {
+        display: flex;
+        justify-content: end;
+    }
+
+    .hardwareFilter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 25px;
+        padding: 8px 15px;
+        color: rgb(0, 90, 189);
+        border: none;
+        gap: 5px;
+        background-color: transparent;
+        transition: 0.4s;
+    }
+
+    .labelContainer {
+        font-size: 25px;
+        margin: 60px;
+    }
+
+
+    .hardwareFilter:hover {
+        background-color: rgb(243, 243, 243);
+        border-radius: 10px;
+        cursor: pointer;
+        color: rgba(13, 58, 110, 0.849);
+    }
+
+    .hardwareVideo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 300px;
+        width: 100%;
+        overflow-y: hidden;
+    }
+
+    .hardwareVideo label {
+        font-size: 25px;
+    }
+
+    .hardwareLabelAndButton {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hardwareLabelAndButton button {
+        padding: 8px 15px;
+        background-color: transparent;
+        font-size: 15px;
+        border: 2px solid rgb(0, 112, 204);
+        transition: 0.4s;
+    }
+
+    .hardwareLabelAndButton button:hover {
+        padding: 8px 15px;
+        background-color: rgb(0, 112, 204);
+        font-size: 15px;
+        border: 2px solid transparent;
+        color: white;
+        cursor: pointer;
+    }
 }
 
-.hardwareImg:hover{
-    cursor: pointer;
-    filter: brightness(80%);
+@media screen and (max-width: 992px) {
+    .hardwareCard {
+        width: 100%;
+        height: 65vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: none;
+    }
+
+
+    .hardwareCard img {
+        width: 80%;
+    }
+
+    .hardwareAddAndLabel {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hardwareLabel {
+        font-size: 15px;
+        width: 70%;
+    }
+
+
+    .hardwareCard:hover {
+        cursor: pointer;
+    }
+
+    .hardwareButtonContainer {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hardwareButton {
+        padding: 10px 20px;
+        border: 2px solid rgb(205, 61, 15);
+        color: rgb(205, 61, 15);
+        font-weight: 700;
+        border-radius: 10px;
+        background-color: transparent;
+        transition: 0.5s ease-in-out;
+    }
+
+    .hardwareButton:hover {
+        cursor: pointer;
+        color: rgba(0, 0, 0, 0.819);
+        background-color: rgb(205, 61, 15);
+        border: 2px solid transparent;
+    }
+
+    .hardwareText {
+        font-size: 2.625rem;
+    }
+
+    .parentHardwareFilter {
+        display: flex;
+        justify-content: end;
+    }
+
+    .hardwareFilter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 25px;
+        padding: 8px 15px;
+        color: rgb(0, 90, 189);
+        border: none;
+        gap: 5px;
+        background-color: transparent;
+        transition: 0.4s;
+    }
+
+    .labelContainer {
+        font-size: 25px;
+        margin: 60px;
+    }
+
+
+    .hardwareFilter:hover {
+        background-color: rgb(243, 243, 243);
+        border-radius: 10px;
+        cursor: pointer;
+        color: rgba(13, 58, 110, 0.849);
+    }
+
+    .hardwareVideo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 200px;
+        width: 100%;
+        gap: 50px;
+
+    }
+
+    .hardwareVideo label {
+        font-size: 20px;
+    }
+
+    .hardwareLabelAndButton {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hardwareLabelAndButton button {
+        padding: 8px 15px;
+        background-color: transparent;
+        font-size: 15px;
+        border: 2px solid rgb(0, 112, 204);
+        transition: 0.4s;
+    }
+
+    .hardwareLabelAndButton button:hover {
+        padding: 8px 15px;
+        background-color: rgb(0, 112, 204);
+        font-size: 15px;
+        border: 2px solid transparent;
+        color: white;
+        cursor: pointer;
+    }
 }
 
-.hardwareText{
-    font-size: 2.625rem;
+
+@media screen and (max-width: 660px) {
+    .hardwareVideo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 120px;
+        width: 100%;
+        gap: 50px;
+    }
+
+    .hardwareVideo label {
+        font-size: 14px;
+    }
+
+    .hardwareLabelAndButton {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hardwareLabelAndButton button {
+        padding: 5px 10px;
+        background-color: transparent;
+        font-size: 10px;
+        border: 2px solid rgb(0, 112, 204);
+        transition: 0.4s;
+    }
+
+    .hardwareLabelAndButton button:hover {
+        padding: 5px 10px;
+        background-color: rgb(0, 112, 204);
+        font-size: 15px;
+        border: 2px solid transparent;
+        color: white;
+        cursor: pointer;
+    }
 }
 
-.parentHardwareFilter{
-    display: flex;
-    justify-content: end;
+@media screen and (max-width: 400px) {
+    .hardwareVideo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+        width: 100%;
+    }
+
+    .hardwareVideo label {
+        font-size: 12px;
+    }
+
+    .hardwareLabelAndButton {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hardwareLabelAndButton button {
+        padding: 3px 8px;
+        background-color: transparent;
+        font-size: 10px;
+        border: 2px solid rgb(0, 112, 204);
+        transition: 0.4s;
+    }
+
+    .hardwareLabelAndButton button:hover {
+        padding: 3px 8px;
+        background-color: rgb(0, 112, 204);
+        font-size: 15px;
+        border: 2px solid transparent;
+        color: white;
+        cursor: pointer;
+    }
 }
-
-.hardwareFilter{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 25px;
-    padding: 8px 15px;
-    color: rgb(0,90,189);
-    border: none;
-    gap: 5px;
-    background-color: transparent;
-    transition: 0.4s;
-}
-
-
-.hardwareFilter:hover{
-    background-color: rgb(243, 243, 243);
-    border-radius: 10px;
-    cursor: pointer;
-    color: rgba(13, 58, 110, 0.849);
-}
-
-.hardwareVideo{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.hardwareVideo label{
-    font-size: 30px;
-}
-
-.hardwareLabelAndButton{
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.hardwareLabelAndButton button{
-    padding: 8px 15px;
-    background-color: transparent;
-    font-size: 17px;
-    border: 2px solid rgb(0,112,204); ;
-}
-
-.hardwareLabelAndButton button:hover{
-    cursor: pointer;
-}
-

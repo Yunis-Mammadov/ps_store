@@ -29,7 +29,7 @@ const hardwareVideoController = {
         const { video, name } = req.body
         const newHardware = new HardwareVideoModel({
             video: video,
-            name: name
+            name: name,
         })
         await newHardware.save()
         res.status(201).send({
@@ -39,10 +39,10 @@ const hardwareVideoController = {
     },
     edit: async (req, res) => {
         const id = req.params.id
-        const { name } = req.body
+        const { name, video } = req.body
         const updatingHardware = { 
             video: video,
-            name: name
+            name: name,
         }
         const hardware = await HardwareVideoModel.findByIdAndUpdate(id, updatingHardware)
         res.status(200).send({

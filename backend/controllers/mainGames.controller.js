@@ -1,32 +1,45 @@
-const mainGamesModel = require("../models/mainGames.model")
+const mainGamesModel = require("../models/mainGames.model");
 
 const mainGamesController = {
     getAll: async (req, res) => {
-        const { name } = req.query
-        const games = await mainGamesModel.find()
+        const { name } = req.query;
+        const games = await mainGamesModel.find();
         if (!name) {
-            res.status(200).send(games)
+            res.status(200).send(games);
         } else {
             const searchedGames = games.filter((x) =>
                 x.name.toLowerCase().trim().includes(name.toLowerCase().trim())
-            )
-            res.status(200).send(searchedGames)
+            );
+            res.status(200).send(searchedGames);
         }
     },
     getOne: async (req, res) => {
-        const { id } = req.params
-        const games = await mainGamesModel.findById(id)
-        res.status(200).send(games)
+        const { id } = req.params;
+        const games = await mainGamesModel.findById(id);
+        res.status(200).send(games);
     },
     delete: async (req, res) => {
-        const id = req.params.id
-        const games = await mainGamesModel.findByIdAndDelete(id)
+        const id = req.params.id;
+        const games = await mainGamesModel.findByIdAndDelete(id);
         res.status(203).send({
             message: `${games.name} deleted successfully!`
-        })
+        });
     },
     post: async (req, res) => {
-        const { name, price, country, year, imageURL, platform, genre, language, coop, vibration } = req.body
+        const {
+            name,
+            price,
+            country,
+            year,
+            imageURL,
+            platform,
+            genre,
+            language,
+            voice,
+            release,
+            publisher,
+
+        } = req.body;
         const newGames = new mainGamesModel({
             name: name,
             price: price,
@@ -36,36 +49,68 @@ const mainGamesController = {
             platform: platform,
             genre: genre,
             language: language,
-            coop: coop,
-            vibration: vibration
-        })
-        await newGames.save()
+            voice: voice,
+            release: release,
+            publisher: publisher
+        });
+        await newGames.save();
         res.status(201).send({
             message: `${newGames.name} posted successfully!`,
             games: newGames
-        })
+        });
     },
-    edit: async (req, res) => {
-        const id = req.params.id
-        const { name } = req.body
-        const updatingGames = {
-            name: name,
-            price: price,
-            country: country,
-            year: year,
-            imageURL: imageURL,
-            platform: platform,
-            genre: genre,
-            language: language,
-            coop: coop,
-            vibration: vibration
+    edit: async function updateMainGame(req, res) {
+        try {
+            const id = req.params.id;
+            const {
+                name,
+                price,
+                country,
+                year,
+                imageURL,
+                platform,
+                genre,
+                language,
+                voice,
+                release,
+                publisher,
+            } = req.body;
+
+            const updatingGames = {
+                name,
+                price,
+                country,
+                year,
+                imageURL,
+                platform,
+                genre,
+                language,
+                voice,
+                release,
+                publisher,
+            };
+
+            const games = await mainGamesModel.findByIdAndUpdate(
+                id,
+                updatingGames,
+                { new: true }
+            );
+
+            if (!games) {
+                return res.status(404).send({
+                    error: "Game not found."
+                });
+            }
+
+            res.status(200).send({
+                message: `${games.name} updated successfully!`
+            });
+        } catch (error) {
+            res.status(500).send({
+                error: "An error occurred while updating the game."
+            });
         }
-        const games = await mainGamesModel.findByIdAndUpdate(id, updatingGames)
-        res.status(200).send({
-            message: `${games.name} update successfully!`,
-        })
     }
-}
+};
 
-
-module.exports = mainGamesController
+module.exports = mainGamesController;

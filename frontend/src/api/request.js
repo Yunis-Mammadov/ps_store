@@ -3,7 +3,7 @@ import { BASE_URL } from './baseURL';
 
 export const signUP = async (payload) => {
   const response = await axios.post(`${BASE_URL}/api/user`, payload);
-  return response;
+  return response.data
 };
 
 export const signIN = async (payload) => {
@@ -71,7 +71,7 @@ export const getAllHardware = async () => {
 }
 
 
-export const hardwareVideo = async () => {
+export const getHardwareVideo = async () => {
   let hardwareVideo;
   await axios.get(`${BASE_URL}/api/hardwarevideo`)
   .then((res) => {

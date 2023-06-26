@@ -1,6 +1,6 @@
 const express = require("express")
 const hardware_router = express.Router()
-const hardwareController = require("../controllers/hardware.contoller")
+const hardwareController = require("../controllers/hardware.controller")
 const hardwarePostMiddleware = require("../middlewares/hardware.middleware")
 
 
