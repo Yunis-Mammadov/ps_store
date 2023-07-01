@@ -1,15 +1,18 @@
+import AdminHome from "../pages/Admin/AdminHome";
 import AdminRoot from "../pages/Admin/AdminRoot";
 import Accessories from "../pages/User/Accessories";
-import Contact from "../pages/User/Contact";
+import BasketPage from "../pages/User/BasketPage";
 import DetailPage from "../pages/User/DetailPage";
+import FreeToPlay from "../pages/User/FreeToPlay";
 import Games from "../pages/User/Games";
 import Hardware from "../pages/User/Hardware";
 import Login from "../pages/User/Login";
-import AdminHome from "../pages/Admin/AdminHome";
-import UserHome from "../pages/User/UserHome";
 import LoginRoot from "../pages/User/LoginRoot";
 import MainRoot from "../pages/User/MainRoot";
+import NewGames from "../pages/User/NewGames";
 import Register from "../pages/User/Register";
+import UserHome from "../pages/User/UserHome";
+
 
 export const ROUTES = [
     {
@@ -25,11 +28,7 @@ export const ROUTES = [
                 element: <Accessories />
             },
             {
-                path: 'contact',
-                element: <Contact />
-            },
-            {
-                path: '',
+                path: '/games/:id',
                 element: <DetailPage />
             },
             {
@@ -40,6 +39,17 @@ export const ROUTES = [
                 path: 'hardware',
                 element: <Hardware />
             },
+            {
+                path: 'newgames',
+                element: <NewGames />
+            },
+            {    path: 'freetoplay',
+                element: <FreeToPlay />
+            },
+            {
+                path: 'basket',
+                element: <BasketPage/>
+            }
         ]
     },
     {
@@ -63,7 +73,11 @@ export const ROUTES = [
             {
                 path: "adminpanel",
                 element: <AdminHome/>
-            }
+            },
+            // {
+            //     path: "adminuser",
+            //     element: </>
+            // }
         ]
     }
 

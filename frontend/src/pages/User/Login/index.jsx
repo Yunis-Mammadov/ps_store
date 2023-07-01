@@ -6,16 +6,36 @@ import { useUserContext } from '../../../context/UserContext';
 import { useNavigate } from "react-router-dom"
 import { signIN } from '../../../api/request';
 import Swal from 'sweetalert2';
-import { useFormik} from 'formik';
+import { useFormik } from 'formik';
+
 
 
 const Login = () => {
-    
+    const [user, setUser] = useUserContext();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
+
     const handleSubmit = async (values, actions) => {
         const response = await signIN(values);
         console.log(response);
+        if (response.auth) {
+            localStorage.setItem('token', response.token);
+            localStorage.setItem('user', JSON.stringify(response.user));
+            setUser(response.user);
+            setIsLoggedIn(true);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'User signed in successfully!',
+                showConfirmButton: false,
+                timer: 1200
+            });
+            setTimeout(() => {
+                navigate('/');
+              }, 2000);
+        }
         actions.resetForm();
-    }
+    };
 
     const formik = useFormik({
         initialValues: {
@@ -71,7 +91,7 @@ const Login = () => {
                         <div className={styles.signIn}>
                             <button
                                 type="submit"
-                                className={styles.signInButton} 
+                                className={styles.signInButton}
                             >
                                 Sign In
                             </button>

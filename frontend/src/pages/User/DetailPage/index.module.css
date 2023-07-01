@@ -1,0 +1,82 @@
+.detailPageContainer{
+    background-color: black;
+    width: 100%;
+}
+
+.gameDetaailContainer{
+    display: flex;  
+    justify-content: space-between;
+}
+
+.gameDetailCard{
+    margin: 70px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 500px;
+    height: 45vh;
+    padding: 25px 50px;
+    background-color: rgb(34,33,37);
+}
+
+.gameDetailCard button{
+    width: 90%;
+    height: 5vh;
+    background-color: rgb(214,61,0);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: .5s ease-in-out;
+}
+
+.gameDetailCard button:hover{
+    width: 90%;
+    height: 5vh;
+    background-color: rgb(214,61,0);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
+    filter: brightness(80%);
+    cursor: pointer;
+}
+
+.legalInfoContainer{
+    width: 40%;
+    margin: 70px ; 
+    color: white;
+}
+
+
+.legalInfoContainer h1{
+    text-align: center;
+    margin-bottom: 10px; 
+}
+
+.detailInfoContainer{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.detailInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-direction: column;
+    color: white;
+}
+
+
+.detailInfoApi{
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-direction: column;
+    color: white;
+}

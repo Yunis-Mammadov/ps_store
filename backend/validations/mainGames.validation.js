@@ -9,9 +9,11 @@ const mainGamesPostSchema = Joi.object({
     platform: Joi.string().required(),
     genre: Joi.string().required(),
     language: Joi.string().required(),
+    backgroundImage: Joi.string().required(),
     voice: Joi.string().required(),
     release: Joi.string().required(),
     publisher: Joi.string().required(),
+    info: Joi.string().required(),
 })
 
 module.exports = mainGamesPostSchema

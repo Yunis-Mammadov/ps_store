@@ -15,22 +15,90 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from "../Modal";
 import styles from "../UserNavbar/index.module.css";
+import { UserContextProvider, useUserContext } from '../../../../context/UserContext';
+import { useState } from 'react';
+import { getUsers } from '../../../../api/request';
+import { useEffect } from 'react';
+import { Button } from '@mui/material';
+import BasicMenu from '../BasicMenu';
+import { LoadingOutlined } from '@ant-design/icons';
+import PacmanLoader from "react-spinners/PacmanLoader";
+
 
 const drawerWidth = 300;
 const navItems = [
   { label: "Hardware", path: "hardware" },
   { label: "Accessories", path: "accessories" },
   { label: "Games", path: "games" },
-  { label: "Contact", path: "contact" }
 ];
 
+
 function UserNavbar() {
+  const [user, setUser, isLoggedIn, setIsLoggedIn] = useUserContext();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  // const [loading, setLoading] = useState(false)
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
+  
+  const handleBasketClick = () => {
+    window.location.href = "/basket";
+  };
 
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const checkLoginStatus = () => {
+    setIsLoggedIn(false);
+  };
+
+
+  const renderUserIcon = () => {
+    if (isLoggedIn) {
+      return (
+        <>
+          <BasicMenu />
+        </>
+      );
+    } else {
+      return (
+        <button
+          onClick={() => {
+            checkLoginStatus();
+            // setLoading(true);
+            // setTimeout(() => {
+            //   setLoading(false);
+            // }, 0);
+            window.location.href = "/login";
+          }}
+          style={{
+            width: "80px",
+            height: "40px",
+            borderRadius: "10px",
+            border: "none",
+            fontSize: "15px",
+            backgroundColor: "rgb(25,118,210)",
+            color: "white",
+            cursor: "pointer"
+          }}
+          variant="contained"
+          // disabled={loading}
+        >
+          {/* {loading ? (
+            <PacmanLoader color="#36d7b7" />
+          ) : (
+            )} */}
+            Sign In
+        </button>
+
+      );
+    }
+  };
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Divider />
@@ -57,7 +125,8 @@ function UserNavbar() {
         <CssBaseline />
         <AppBar component="nav" position='sticky' sx={{
           paddingRight: "0px !important",
-          bgcolor: "rgb(31,31,31)"
+          bgcolor: "rgb(31,31,31)",
+          width: "100%"
         }}>
           <Box className={styles.TopNav}>
             <img className={styles.TopNavImg} src="https://media.direct.playstation.com/is/image/sierialto/sony-logo@3x?$Icons$" alt="" />
@@ -75,11 +144,21 @@ function UserNavbar() {
             <Box className={styles.Navbar}>
               <Box className={styles.LinksAndLogo}>
                 <Box>
-                  <img className={styles.NavbarImg} onClick={() => {
-                    window.location.href = "http://localhost:3000/";
-                  }} src="https://media.direct.playstation.com/is/image/sierialto/ps-logo-us?$Icons$" alt="" />
+                  <img
+                    className={styles.NavbarImg}
+                    onClick={() => {
+                      window.location.href = "http://localhost:3000/";
+                    }}
+                    src="https://media.direct.playstation.com/is/image/sierialto/ps-logo-us?$Icons$"
+                    alt=""
+                  />
                 </Box>
-                <Box sx={{ width: "100%", display: { xs: 'none', sm: 'block' } }}>
+                <Box
+                  sx={{
+                    width: "100%",
+                    display: { xs: 'none', sm: 'block' }
+                  }}
+                >
                   {navItems.map((item) => (
                     <Box
                       key={item.label}
@@ -90,7 +169,8 @@ function UserNavbar() {
                         fontSize: '0.9rem',
                         display: 'inline-block',
                         marginLeft: '1.4rem',
-                        marginTop: '0.5rem', textDecoration: "none",
+                        marginTop: '0.5rem',
+                        textDecoration: "none",
                       }}
                     >
                       {item.label}
@@ -100,32 +180,15 @@ function UserNavbar() {
               </Box>
               <Box className={styles.ButtonsAndSearch}>
                 <Box className={styles.RegisterBtn}>
-                  {/* <Link to={<Login/>}> */}
-                  <button
-                    onClick={() => {
-                      window.location.href = "login";
-                    }}
-                    style={{
-                      width: "80px",
-                      height: "40px",
-                      borderRadius: "10px",
-                      border: "none",
-                      fontSize: "15px",
-                      backgroundColor: "rgb(25,118,210)",
-                      color: "white",
-                      cursor: "pointer"
-                    }}
-                    variant="contained"
-                  >
-                    Sign In
-                  </button>
-
-                  {/* </Link> */}
+                  {renderUserIcon()}
                 </Box>
                 <Box>
                   <Modal />
                 </Box>
-                <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                <Box
+                  sx={{ display: { xs: 'none', sm: 'block' } }}
+                  onClick={handleBasketClick}
+                >
                   <FavoriteIcon
                     sx={{
                       marginTop: "7px",
@@ -152,7 +215,11 @@ function UserNavbar() {
             }}
             sx={{
               display: { xs: 'block', sm: 'none' },
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, backgroundColor: "rgb(31,31,31)" },
+              '& .MuiDrawer-paper': {
+                boxSizing: 'border-box',
+                width: drawerWidth,
+                backgroundColor: "rgb(31,31,31)"
+              },
             }}
           >
             {drawer}

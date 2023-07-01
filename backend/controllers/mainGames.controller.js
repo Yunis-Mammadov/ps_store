@@ -35,9 +35,11 @@ const mainGamesController = {
             platform,
             genre,
             language,
+            backgroundImage,
             voice,
             release,
             publisher,
+            info
 
         } = req.body;
         const newGames = new mainGamesModel({
@@ -49,9 +51,11 @@ const mainGamesController = {
             platform: platform,
             genre: genre,
             language: language,
+            backgroundImage: backgroundImage,
             voice: voice,
             release: release,
-            publisher: publisher
+            publisher: publisher,
+            info: info
         });
         await newGames.save();
         res.status(201).send({
@@ -71,9 +75,11 @@ const mainGamesController = {
                 platform,
                 genre,
                 language,
+                backgroundImage,
                 voice,
                 release,
                 publisher,
+                info
             } = req.body;
 
             const updatingGames = {
@@ -85,9 +91,11 @@ const mainGamesController = {
                 platform,
                 genre,
                 language,
+                backgroundImage,
                 voice,
                 release,
                 publisher,
+                info
             };
 
             const games = await mainGamesModel.findByIdAndUpdate(

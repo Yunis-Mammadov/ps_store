@@ -54,13 +54,11 @@
     filter: brightness(80%);
 }
 
-
-.top10Games{
+.btnAndLabel{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
-    width: 100%;
+    margin: 0 100px;
 }
 
 .top10Label{
@@ -72,11 +70,6 @@
     font-size: 1.525rem;
 }
 
-.btnAndLabel{
-    display: flex;
-    justify-content: space-around;
-    gap: 850px;
-}
 
 .homeBtn{
     color: rgb(0, 104, 189);
@@ -94,9 +87,37 @@
     color: rgb(0,88,87);
 }
 
-.homeImg{
-    margin-top: 120px;
-    width: 100%;
-    object-fit: cover;
-    height: 60vh;
+@media screen and (min-width: 620px) {
+        
+    .homeImg{
+        margin-top: 120px;
+        width: 100%;
+        object-fit: cover;
+        height: 60vh;
+    }
+    
+}
+
+
+    /* @media screen and (min-width: 446px) {
+            
+        .homeImg{
+            margin-top: 40px;
+            width: 100%;
+            object-fit: cover;
+            height: 60vh;
+        }
+        
+    }
+    */
+
+@media screen and (min-width: 326px) {
+        
+    .homeImg{
+        margin-top: 120px;
+        width: -100px;
+        object-fit: cover;
+        height: 60vh;
+    }
+    
 }

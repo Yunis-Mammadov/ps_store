@@ -3,7 +3,7 @@ import { BASE_URL } from './baseURL';
 
 export const signUP = async (payload) => {
   const response = await axios.post(`${BASE_URL}/api/user`, payload);
-  return response.data
+  return response
 };
 
 export const signIN = async (payload) => {
@@ -33,6 +33,17 @@ export const getAllGames = async () => {
      })
      return Games
 }
+
+
+export const getGamesById = async (id) => {
+  let Games;
+  await axios.get(`${BASE_URL}/api/maingames/${id}`)
+  .then((res) => {
+    Games = res.data
+  })
+  return Games
+}
+
 
 export const getHomeGames = async () => {
      let Games;
@@ -79,3 +90,23 @@ export const getHardwareVideo = async () => {
   })
   return hardwareVideo
 }
+
+export const getAllAccessories = async () => {
+  let Accessories;
+  await axios.get(`${BASE_URL}/api/accessories`)
+  .then((res) => {
+    Accessories = res.data
+  })
+  return Accessories
+}
+
+
+export const getAccessoriesHeaders = async () => {
+  let Accessories;
+  await axios.get(`${BASE_URL}/api/accessoriesheader`)
+  .then((res) => {
+    Accessories = res.data
+  })
+  return Accessories
+}
+

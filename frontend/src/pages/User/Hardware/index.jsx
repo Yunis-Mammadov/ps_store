@@ -70,7 +70,7 @@ const Hardware = () => {
               ))}
           </Grid>
         </div>
-        <div style={{ margin: "120px auto" }}>
+        <div style={{ margin: "120px auto", textAlign:"center" }}>
           <label className={styles.labelContainer}>Shop PS4 Consoles</label>
           <Grid container spacing={1} xs={11} margin={"0 auto"}>
             {filteredHardwaresPs4 &&

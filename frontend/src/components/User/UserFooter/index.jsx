@@ -22,27 +22,27 @@ const UserFooter = () => {
           </div>
           <div className={styles.parentFooterSection1}>
             <div className={styles.footerSection1}>
-              <a href=""> Support</a>
-              <a href=""> Privacy Policy</a>
-              <a href=""> Website Terms of Use</a>
-              <a href=""> Sitemap</a>
-              <a href=""> PlayStation Studios</a>
-              <a href=""> Legal</a>
-              <a href=""> About SIE</a>
+              <a target="_blank" href="https://www.playstation.com/en-us/support/"> Support</a>
+              <a target="_blank" href="https://www.playstation.com/en-us/legal/privacy-policy/"> Privacy Policy</a>
+              <a target="_blank" href="https://www.playstation.com/en-us/legal/website-terms-of-use/"> Website Terms of Use</a>
+              <a target="_blank" href="https://www.playstation.com/en-us/site-map/"> Sitemap</a>
+              <a target="_blank" href="https://www.playstation.com/en-us/corporate/playstation-studios/"> PlayStation Studios</a>
+              <a target="_blank" href="https://www.playstation.com/en-us/legal/"> Legal</a>
+              <a target="_blank" href="https://www.playstation.com/en-us/corporate/about-us/"> About SIE</a>
             </div>
             <div className={styles.footerSection2}>
-              <a href=""> PSN Terms of Service</a>
-              <a href=""> PS Store Cancellation Policy</a>
-              <a href=""> Health Warnings</a>
-              <a href=""> About Ratings</a>
+              <a target="_blank" href="https://www.playstation.com/en-us/legal/psn-terms-of-service/"> PSN Terms of Service</a>
+              <a target="_blank" href="https://www.playstation.com/en-us/legal/playstation-store-cancellation-policy/"> PS Store Cancellation Policy</a>
+              <a target="_blank" href="https://www.playstation.com/en-us/legal/health-warning/"> Health Warnings</a>
+              <a target="_blank" href="https://www.playstation.com/en-us/support/account/age-ratings-playstation/"> About Ratings</a>
             </div>
             <div className={styles.footerSection3}>
-              <a href=""> Facebook</a>
-              <a href=""> Twitter</a>
-              <a href=""> YouTube</a>
-              <a href=""> Instagram</a>
-              <a href=""> Android App</a>
-              <a href=""> iOS App</a>
+              <a target="_blank" href="https://www.facebook.com/playstation"> Facebook</a>
+              <a target="_blank" href="https://twitter.com/i/flow/login?redirect_after_login=%2FPlayStation"> Twitter</a>
+              <a target="_blank" href="https://www.youtube.com/user/PlayStation"> YouTube</a>
+              <a target="_blank" href="https://www.instagram.com/PlayStation/"> Instagram</a>
+              <a target="_blank" href="https://play.google.com/store/apps/details?id=com.scee.psxandroid&utm_source=pdcfooter&pli=1"> Android App</a>
+              <a target="_blank" href="https://apps.apple.com/app/apple-store/id410896080?pt=104940801&ct=pdcfooter&mt=8"> iOS App</a>
             </div>
           </div>
           <div className={styles.parentFooterImgAndText}>

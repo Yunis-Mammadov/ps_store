@@ -1,30 +1,30 @@
-.gamesCard {
+.newGamesCard {
     max-width: 400px;
     height: 100%;
 }
 
-.gamesImg {
+.newGamesImg {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: 0.5s;
 }
 
-.gamesImg:hover{
+.newGamesImg:hover{
     cursor: pointer;
     filter: brightness(80%);
 }
 
-.gamesText{
+.newGamesText{
     font-size: 2.625rem;
 }
 
-.parentGamesFilter{
+.parentNewGamesFilter{
     display: flex;
     justify-content: flex-end;
 }
 
-.gamesFilter{
+.newGamesFilter{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +38,7 @@
 }
 
 
-.gamesFilter:hover{
+.newGamesFilter:hover{
     background-color: rgb(243, 243, 243);
     border-radius: 10px;
     cursor: pointer;

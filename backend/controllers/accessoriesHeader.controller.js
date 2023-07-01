@@ -1,9 +1,9 @@
-const AccessoriesModel = require("../models/accessories.model")
+const AccessoriesHeaderModel = require("../models/accesssoriesHeader.model")
 
-const accessoriesController = {
+const accessoriesHeaderController = {
     getAll: async (req, res) => {
         const { name } = req.query
-        const accessories = await AccessoriesModel.find()
+        const accessories = await AccessoriesHeaderModel.find()
         if (!name) {
             res.status(200).send(accessories)
         } else {
@@ -15,23 +15,22 @@ const accessoriesController = {
     },
     getOne: async (req, res) => {
         const { id } = req.params
-        const accessories = await AccessoriesModel.findById(id)
+        const accessories = await AccessoriesHeaderModel.findById(id)
         res.status(200).send(accessories)
     },
     delete: async (req, res) => {
         const id = req.params.id
-        const accessories = await AccessoriesModel.findByIdAndDelete(id)
+        const accessories = await AccessoriesHeaderModel.findByIdAndDelete(id)
         res.status(203).send({
-            message: `${accessories.name} deleted successfully!`
+            message: `${accessories.imageURL} deleted successfully!`
         })
     },
     post: async (req, res) => {
-        const { imageURL, name, price, console } = req.body
-        const newAccessories = new AccessoriesModel({
+        const { imageURL, name, description } = req.body
+        const newAccessories = new AccessoriesHeaderModel({
             imageURL: imageURL,
             name: name,
-            price: price,
-            console: console
+            description: description
         })
         await newAccessories.save()
         res.status(201).send({
@@ -41,14 +40,13 @@ const accessoriesController = {
     },
     edit: async (req, res) => {
         const id = req.params.id
-        const { imageURL, name, price, console } = req.body
+        const { name, imageURL, description } = req.body
         const updatingAccessories = { 
             imageURL: imageURL,
             name: name,
-            price: price,
-            console: console
+            description: description
         }
-        const accessories = await AccessoriesModel.findByIdAndUpdate(id, updatingAccessories)
+        const accessories = await AccessoriesHeaderModel.findByIdAndUpdate(id, updatingAccessories)
         res.status(200).send({
             message: `${accessories.name} update successfully!`,
         })
@@ -56,4 +54,4 @@ const accessoriesController = {
 }
 
 
-module.exports = accessoriesController
+module.exports = accessoriesHeaderController

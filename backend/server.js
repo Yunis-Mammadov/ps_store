@@ -14,6 +14,7 @@ const router = require("./routes")
 
 
 app.use("/api/accessories",router.accessories_routes)
+app.use("/api/accessoriesheader",router.accessoriesHeader_router)
 app.use("/api/contact",router.contact_routes)
 app.use("/api/homeGames",router.homeGamesPage_routes)
 app.use("/api/maingames",router.mainGamesPage_routes)

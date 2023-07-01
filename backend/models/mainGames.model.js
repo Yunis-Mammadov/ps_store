@@ -10,9 +10,11 @@ const mainGamesModel = new mongoose.model("mainGames", (
         platform: String,
         genre: String,
         language: String,
+        backgroundImage: String,
         voice: String,
         release: String,
-        publisher: String
+        publisher: String,
+        info: String
     })
 ))
 

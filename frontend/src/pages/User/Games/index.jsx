@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import Grid from "@mui/material/Grid"
-import Card from "@mui/material/Card"
-import { getAllGames } from '../../../api/request'
-import styles from "../Games/index.module.css"
+import React, { useEffect, useState } from 'react';
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import { getAllGames, getGamesById } from '../../../api/request';
+import styles from "../Games/index.module.css";
 import FilterListIcon from '@mui/icons-material/FilterList';
+import { Link, useParams } from 'react-router-dom';
 
 const Games = () => {
-  const [games, setGames] = useState([])
+  const [games, setGames] = useState([]);
 
   useEffect(() => {
     getAllGames().then(data => {
-      setGames(data)
-    })
-  }, [])
+      setGames(data);
+    });
+  }, []);
+
+  const params = useParams();
+
 
   return (
     <>
@@ -28,18 +32,21 @@ const Games = () => {
         </div>
         <div>
           <Grid container spacing={4}>
-            {games && games.map((game) => (
-              <Grid item xs={2} key={game._id}>
-                <Card className={styles.gamesCard}>
-                  <img className={styles.gamesImg} src={game.imageURL} alt={game.name} />
-                </Card>
-              </Grid>
-            ))}
+            {games &&
+              games.map((game) => (
+                <Grid item xs={12} sm={6} md={4} lg={3} key={game._id}>
+                  <Link to={`/games/${game._id}`}>
+                    <Card className={styles.gamesCard}>
+                      <img className={styles.gamesImg} src={game.imageURL} alt={game.name} />
+                    </Card>
+                  </Link>
+                </Grid>
+              ))}
           </Grid>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Games
+export default Games;
